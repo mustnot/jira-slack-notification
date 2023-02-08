@@ -8,7 +8,7 @@ on:
     - cron: '* * * * *'
 
 jobs:
-  build:
+  cron:
     runs-on: ubuntu-latest
     strategy:
       matrix:
