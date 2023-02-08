@@ -5,7 +5,7 @@ name: Run Alpha Tested Slack Notification
 
 on:
   schedule:
-    - cron: '* * * * 1-5'
+    - cron: '0 6 * * 1-5'
 
 jobs:
   cron:
@@ -25,9 +25,9 @@ jobs:
         pip install -r alpha-tested-notification/requirements.txt
     - name: Run
       env:
-        SLACK_HOOK_URL: ${{ secrets.SLACK_HOOK_URL }}
         JIRA_URL: ${{ secrets.JIRA_URL }}
         JIRA_USER_NAME: ${{ secrets.JIRA_USER_NAME }}
         JIRA_API_TOKEN: ${{ secrets.JIRA_API_TOKEN }}
+        SLACK_HOOK_URL: ${{ secrets.SLACK_HOOK_URL }}
       run: |
         python alpha-tested-notification/run.py
