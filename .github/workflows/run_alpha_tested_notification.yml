@@ -19,13 +19,12 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install -r alpha-tested-notification/requirements.txt
+        pip install -r alpha_tested_notification/requirements.txt
     - name: Run
-      if: github.event.schedule == '0 0 * * 1-5'
       env:
         JIRA_URL: ${{ secrets.JIRA_URL }}
         JIRA_USER_NAME: ${{ secrets.JIRA_USER_NAME }}
         JIRA_API_TOKEN: ${{ secrets.JIRA_API_TOKEN }}
         SLACK_HOOK_URL: ${{ secrets.SLACK_HOOK_URL }}
       run: |
-        python alpha-tested-notification/run.py
+        python alpha_tested_notification/run.py

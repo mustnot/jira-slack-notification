@@ -17,9 +17,12 @@ class JiraBoard:
 
         issue_infos = []
         for issue in issues:
+            from pprint import pprint
+            pprint(issue)
             issue_infos.append({
+                "key": self._get_issue_key(issue),
                 "title": self._get_issue_title(issue),
-                "assignee": self_._get_issue_assignee(issue),
+                "assignee": self._get_issue_assignee(issue),
                 "link": self._get_issue_link(issue),
                 "version": self._get_issue_fix_version(issue)
             })
