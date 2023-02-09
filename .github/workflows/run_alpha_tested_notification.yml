@@ -2,7 +2,7 @@ name: Run Alpha Tested Slack Notification
 
 on:
   schedule:
-    - cron: '30 1 * * 1-5'
+    - cron: '0 0 * * 1-5'
 
 jobs:
   cron:
@@ -21,6 +21,7 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r alpha-tested-notification/requirements.txt
     - name: Run
+      if: github.event.schedule == '0 0 * * 1-5'
       env:
         JIRA_URL: ${{ secrets.JIRA_URL }}
         JIRA_USER_NAME: ${{ secrets.JIRA_USER_NAME }}
