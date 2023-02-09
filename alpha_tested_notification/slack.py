@@ -14,12 +14,30 @@ class Slack:
             }
         }
 
-    def section_block(self, text:str):
+    def title_block(self, text:str):
+        return {
+            "type": "section",
+            "text": {
+                "type": "mrkdwn",
+                "text": f"*{text}*"
+            }
+        }
+
+    def text_block(self, text:str):
         return {
             "type": "section",
             "text": {
                 "type": "mrkdwn",
                 "text": text
+            }
+        }
+
+    def quote_block(self, text:str):
+        return {
+            "type": "section",
+            "text": {
+                "type": "mrkdwn",
+                "text": f"> {text}"
             }
         }
 
