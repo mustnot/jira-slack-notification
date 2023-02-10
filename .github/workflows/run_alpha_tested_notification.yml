@@ -2,7 +2,7 @@ name: Run Alpha Tested Slack Notification
 
 on:
   schedule:
-    - cron: '0 0 * * 1-5'
+    - cron: '0 4 * * 1-5'
   workflow_dispatch:
 
 jobs:
