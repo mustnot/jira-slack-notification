@@ -37,7 +37,7 @@ class JiraBoard:
         return '버전이 할당되지 않은 티켓'
 
     def _get_issue_epic(self, issue):
-        if issue['fields'].get('parent'):
+        if issue['fields'].get('parent', {}):
             return issue['fields']['parent']['fields']['summary']
         return 'No Epic'
 
